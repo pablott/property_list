@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <PropertyList msg="Welcome to Your Vue.js App"/>
+    <h3>List of properties</h3>  
+    <PropertyList list="list of props"/>
   </div>
 </template>
 
@@ -25,4 +25,6 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+
 </style>
