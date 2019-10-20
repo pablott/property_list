@@ -6,7 +6,8 @@
 </template>
 
 <script>
-import PropertyList from './components/PropertyList.vue'
+import PropertyList from './components/PropertyList.vue';
+import axios from 'axios';
 
 export default {
   name: 'app',
