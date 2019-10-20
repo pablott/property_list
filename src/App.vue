@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <h3>List of properties</h3>  
-    <PropertyList list="list of props"/>
+    <h1>List of properties</h1>  
+    <PropertyList :city="city" :list="list"/>
   </div>
 </template>
 
@@ -42,6 +42,4 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-
-
 </style>

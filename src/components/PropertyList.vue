@@ -1,8 +1,21 @@
 <template>
   <div class="list">
-    <h1>{{ list }}</h1>
+    <h3>Pick one from the list</h3>
+    <p>Properties for {{ city }}</p>
+    <pre>{{ list }}</pre>
     <ul>
-      <li></li>
+      <li v-for="property in list" :key="property.id">
+        <div class="featured" v-if="property.isFeatured">FEATURED</div>
+        {{property.id}} - 
+        {{property.name}}
+        {{property.address1}}
+        <br> 
+        LOWEST PRICE: {{property.lowestPricePerNight.value}} VEF - 
+        RATING: {{property.overallRating}}
+        <br> 
+        {{property.overview}}
+        <hr>
+      </li>
     </ul>
   </div>
 </template>
@@ -11,13 +24,18 @@
 export default {
   name: 'PropertyList',
   props: {
-    list: String
+    city: String,
+    list: Array
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+pre {
+  height: 100px;
+  overflow: scroll;
+}
 ul {
   list-style-type: none;
   padding: 0;
@@ -25,5 +43,8 @@ ul {
 li {
   display: inline-block;
   margin: 0 10px;
+}
+.featured {
+  background-color: red;
 }
 </style>
