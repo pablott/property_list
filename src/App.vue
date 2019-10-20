@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <h1>List of properties</h1>  
+    <!-- TODO: Use conditionals todisplay status in case connection is down -->
     <PropertyList :city="city" :list="list"/>
   </div>
 </template>
@@ -18,6 +19,7 @@ export default {
     return {
       city: null,
       list: null,
+      // TODO: add props for error states
     }
   },
   mounted () {
@@ -29,6 +31,7 @@ export default {
         this.list = response.data.properties;
         console.log(this.city);
       })
+      // TODO: catch error states and update props
   }
 }
 </script>
