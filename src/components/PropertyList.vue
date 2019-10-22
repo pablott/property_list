@@ -13,7 +13,10 @@
         DISTANCE: {{property.distance.value}} km
         <br> 
         LOWEST PRICE: {{property.lowestPricePerNight.value}} VEF - 
-        RATING: {{property.overallRating}}
+        <!-- overallRating might be empty!! This will throw an error so we check before showing the overall
+            TODO: use a filter instead combining checking and 1..10 normalization 
+         -->
+        RATING: <span v-if="property.overallRating">{{property.overallRating.overall}}</span>
         <br> 
         {{property.overview}}
         <hr>
