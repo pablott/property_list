@@ -27,6 +27,7 @@ export default {
     city: String,
     list: Array
   }
+  // TODO: add filter to convert currency
 }
 </script>
 
