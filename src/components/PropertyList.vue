@@ -1,5 +1,5 @@
 <template>
-  <div class="list">
+  <div class="list" v-if="list"> 
     <h3>Pick one from the list</h3>
     <p>Properties for {{ city }}</p>
     <pre>{{ list }}</pre>
@@ -18,6 +18,7 @@
       </li>
     </ul>
   </div>
+  <div v-else>List not loaded</div>
 </template>
 
 <script>
