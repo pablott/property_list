@@ -12,7 +12,7 @@
         <br> 
         DISTANCE: {{property.distance.value}} km
         <br> 
-        LOWEST PRICE: {{property.lowestPricePerNight.value}} VEF - 
+        LOWEST PRICE: {{property.lowestPricePerNight.value | convert('EUR')}} - 
         <!-- overallRating might be empty!! This will throw an error so we check before showing the overall
             TODO: use a filter instead combining checking and 1..10 normalization 
          -->
@@ -37,8 +37,24 @@ export default {
     // DEBUG
     console.log('mounted');
     console.log(this.$props);
+  filters: {
+    // Filter to convert currency
+    convert: function (value, outCurrency) {
+      // Init factor and asign value based on outCurrency argument
+      let factor;
+
+      switch (outCurrency) {
+        case 'EUR':
+          factor = 7.55;
+        // Add other currencies below
+        //case 'GBP':
+        //  factor = 8;
+      }
+      // Apply conversion factor and round to two decimal places. Add currency at end.
+      // This returns a string 
+      return (value/factor).toFixed(2) + ' ' + outCurrency;
+    }
   }
-  // TODO: add filter to convert currency
 }
 </script>
 
