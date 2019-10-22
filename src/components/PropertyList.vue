@@ -40,6 +40,9 @@ export default {
   filters: {
     // Filter to convert currency
     convert: function (value, outCurrency) {
+      // Check if value exists
+      if (value===null) return 'no price set';
+
       // Init factor and asign value based on outCurrency argument
       let factor;
 
