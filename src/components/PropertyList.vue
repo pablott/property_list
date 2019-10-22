@@ -13,10 +13,7 @@
         DISTANCE: {{property.distance.value}} km
         <br> 
         LOWEST PRICE: {{property.lowestPricePerNight.value | convert('EUR')}} - 
-        <!-- overallRating might be empty!! This will throw an error so we check before showing the overall
-            TODO: use a filter instead combining checking and 1..10 normalization 
-         -->
-        RATING: <span v-if="property.overallRating">{{property.overallRating.overall}}</span>
+        RATING: {{property.overallRating | normalize}}
         <br> 
         {{property.overview}}
         <hr>
@@ -37,7 +34,18 @@ export default {
     // DEBUG
     console.log('mounted');
     console.log(this.$props);
+  },
   filters: {
+    // Filter for normalizing ratings to 0..10
+    normalize: function (rating) {
+      // Check if rating exists
+      // Important: don't just check for true/false as some properties are rated zero
+      if (rating===null) return 'rating not available';
+
+      // Normalize rating to 0..10
+      let overall = rating.overall;
+      return overall/10 + ' (out of ' + rating.numberOfRatings + ' reviews)';
+    },
     // Filter to convert currency
     convert: function (value, outCurrency) {
       // Check if value exists
