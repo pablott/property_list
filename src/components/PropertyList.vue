@@ -32,6 +32,11 @@ export default {
   props: {
     city: String,
     list: Array
+  },
+  mounted () {
+    // DEBUG
+    console.log('mounted');
+    console.log(this.$props);
   }
   // TODO: add filter to convert currency
 }
