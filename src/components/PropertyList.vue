@@ -10,7 +10,7 @@
         {{property.name}}
         {{property.address1}}
         <br> 
-        DISTANCE: {{property.distance}}
+        DISTANCE: {{property.distance.value}} km
         <br> 
         LOWEST PRICE: {{property.lowestPricePerNight.value}} VEF - 
         RATING: {{property.overallRating}}
