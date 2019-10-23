@@ -29,7 +29,7 @@ export default {
         console.log(response);
         this.city = response.data.location.city.name;
         this.list = response.data.properties;
-        console.log(this.list);
+        //console.log(this.list);
 
         // DEBUG: uncomment to trigger a list error
         //this.list = null;

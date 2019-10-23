@@ -2,7 +2,7 @@
   <div class="list" v-if="list"> 
     <h3>Pick one from the list</h3>
     <p>Properties for {{ city }}</p>
-    <pre>{{ list }}</pre>
+    <!-- <pre>{{ list }}</pre> -->
     <ul>
       <li v-for="property in list" :key="property.id">
         <div class="featured" v-if="property.isFeatured">FEATURED</div>
@@ -32,8 +32,8 @@ export default {
   },
   mounted () {
     // DEBUG
-    console.log('mounted');
-    console.log(this.$props);
+    //console.log('mounted');
+    //console.log(this.$props);
   },
   filters: {
     // Filter for normalizing ratings to 0..10
