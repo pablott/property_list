@@ -87,4 +87,12 @@ pre {
   height: 100px;
   overflow: scroll;
 }
+
+.md-list-item-text {
+  margin-left: 20px;
+}
+
+.md-list-item {
+  margin-bottom: 20px;
+}
 </style>
