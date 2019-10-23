@@ -1,13 +1,16 @@
 <template>
   <div id="app">
-    <h1>List of properties</h1>  
+    <md-toolbar class="md-primary" :md-elevation="1">
+      <span class="md-title">List of properties</span>
+    </md-toolbar>
+
     <!-- Display status in case connection is down -->
-    <ul v-if="errors && errors.length">
+    <md-list v-if="errors && errors.length">
       An error has occurred:
-      <li v-for="error of errors" :key="error.message">
-        {{ error.message }}
-      </li>
-    </ul>
+      <md-list-item v-for="error of errors" :key="error.message">
+        <md-toolbar class="md-accent">{{ error.message }}</md-toolbar>
+      </md-list-item>
+    </md-list>
 
     <!-- Load property list component -->
     <PropertyList :city="city" :list="list"/>
@@ -52,14 +55,5 @@ export default {
   }
 }
 </script>
-
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>

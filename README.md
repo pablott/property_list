@@ -18,6 +18,9 @@ I have implemented two filters:
 - normalize: it takes the overall rating and normalize from 0..100 to 0..10. It checks if the value is present and returns a placeholder text if the value is missing.
 - convert: converts currencies. I made it in a way that can take an extra argument to pick the output currency. It is not very useful in this case because all conversions are VEF-EUR, it is there just to show how it could be extended if there were more curriencies to convert to. It checks if the value is present.
 
+## UI
+I have used Vue Material components. The blue star indicates a featured property.
+
 ## Project setup (original vue-cli instructions)
 ```
 npm install

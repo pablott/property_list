@@ -1,25 +1,37 @@
 <template>
   <div class="list" v-if="list"> 
-    <h3>Pick one from the list</h3>
-    <p>Properties for {{ city }}</p>
     <!-- DEBUG -->
     <!-- <pre>{{ list }}</pre> -->
-    <ul>
-      <li v-for="property in list" :key="property.id">
-        <div class="featured" v-if="property.isFeatured">FEATURED</div>
-        {{property.id}} - 
-        {{property.name}}
-        {{property.address1}}
-        <br> 
-        DISTANCE: {{property.distance.value}} km
-        <br> 
-        LOWEST PRICE: {{property.lowestPricePerNight.value | convert('EUR')}} - 
-        RATING: {{property.overallRating | normalize}}
-        <br> 
-        {{property.overview}}
-        <hr>
-      </li>
-    </ul>
+
+    <md-list class="md-triple-line">
+    <md-subheader>Properties for {{ city }}</md-subheader>
+
+      <md-list-item v-for="property in list" :key="property.id">
+        <!--<div class="featured" v-if="property.isFeatured">FEATURED</div>--> 
+
+        <md-button class="md-icon-button md-list-action">
+          <md-icon class="md-primary" v-if="property.isFeatured">star</md-icon>
+          <md-icon v-else>star_border</md-icon>
+        </md-button>
+
+        <div class="md-list-item-text">
+          <!-- DEBUG
+          {{property.id}} -->
+
+          <span>
+           <b>{{property.name}}</b>
+          </span>
+          <span>{{property.address1}}</span>
+
+          <md-divider></md-divider>
+
+          <span><b>Distance:</b> {{property.distance.value}} km</span>
+          <span><b>Lowest price:</b> {{property.lowestPricePerNight.value | convert('EUR')}}</span>
+          <span><b>Rating:</b> {{property.overallRating | normalize}}</span>
+          <span>{{property.overview}}</span>
+        </div>
+      </md-list-item>
+    </md-list>
   </div>
   <div v-else>List not loaded</div>
 </template>
@@ -74,16 +86,5 @@ export default {
 pre {
   height: 100px;
   overflow: scroll;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  /*display: inline-block;*/
-  margin: 0 10px;
-}
-.featured {
-  background-color: red;
 }
 </style>
