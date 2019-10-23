@@ -1,7 +1,13 @@
 <template>
   <div id="app">
     <h1>List of properties</h1>  
-    <!-- TODO: Use conditionals todisplay status in case connection is down -->
+    <!-- Display status in case connection is down -->
+    <ul v-if="errors && errors.length">
+      An error has occurred:
+      <li v-for="error of errors" :key="error.message">
+        {{ error.message }}
+      </li>
+    </ul>
     <PropertyList :city="city" :list="list"/>
   </div>
 </template>
@@ -19,11 +25,13 @@ export default {
     return {
       city: null,
       list: null,
-      // TODO: add props for error states
+      // Error states (init as array or it won't push into it)
+      errors: []
     }
   },
   mounted () {
     axios
+      // Change get() to a non-existing URL to trigger a Network Error
       .get('https://gist.githubusercontent.com/ruimendesM/bf8d095f2e92da94938810b8a8187c21/raw/70b112f88e803bf0f101f2c823a186f3d076d9e6/properties.json')
       .then(response => {
         console.log(response);
@@ -34,7 +42,11 @@ export default {
         // DEBUG: uncomment to trigger a list error
         //this.list = null;
       })
-      // TODO: catch error states and update props
+      // Catch error states
+      .catch(e => {
+        this.errors.push(e);
+        console.log(this.errors);
+      })
   }
 }
 </script>
