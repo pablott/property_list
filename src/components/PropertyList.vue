@@ -2,6 +2,7 @@
   <div class="list" v-if="list"> 
     <h3>Pick one from the list</h3>
     <p>Properties for {{ city }}</p>
+    <!-- DEBUG -->
     <!-- <pre>{{ list }}</pre> -->
     <ul>
       <li v-for="property in list" :key="property.id">
@@ -42,7 +43,7 @@ export default {
       // Important: don't just check for true/false as some properties are rated zero
       if (rating===null) return 'rating not available';
 
-      // Normalize rating to 0..10
+      // Normalize rating to 0..10, add total ratings it is based on
       let overall = rating.overall;
       return overall/10 + ' (out of ' + rating.numberOfRatings + ' reviews)';
     },
@@ -53,7 +54,6 @@ export default {
 
       // Init factor and asign value based on outCurrency argument
       let factor;
-
       switch (outCurrency) {
         case 'EUR':
           factor = 7.55;

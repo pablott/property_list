@@ -8,6 +8,8 @@
         {{ error.message }}
       </li>
     </ul>
+
+    <!-- Load property list component -->
     <PropertyList :city="city" :list="list"/>
   </div>
 </template>
@@ -42,7 +44,7 @@ export default {
         // DEBUG: uncomment to trigger a list error
         //this.list = null;
       })
-      // Catch error states
+      // Catch error states, push to array for listing in template
       .catch(e => {
         this.errors.push(e);
         console.log(this.errors);
