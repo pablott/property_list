@@ -21,6 +21,9 @@ I have implemented two filters:
 ## UI
 I have used Vue Material components. The blue star indicates a featured property.
 
+## Test
+I have added two basic tests for determining if the component is brought up and the output when the list is missing.
+
 ## Project setup (original vue-cli instructions)
 ```
 npm install
