@@ -24,6 +24,20 @@ I have used Vue Material components. The blue star indicates a featured property
 ## Test
 I have added two basic tests for determining if the component is brought up and the output when the list is missing.
 
+## PWA
+I have prepared the code as progressive web app with a manifest.json. I have made some changes to improve Lighthouse score:
+- Forced HTTPS on font load.
+- Made fonts use font-display: swap.
+
+Build using 
+```
+npm run build
+```
+For best performnace serve with:
+```
+serve -s dist
+```
+
 ## Project setup (original vue-cli instructions)
 ```
 npm install
